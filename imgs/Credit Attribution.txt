@@ -1,0 +1,6 @@
+capitol_building.jpg: 	"US Capitol at Night" 
+			 Photo by John Brighenti
+			 License: CC BY 2.0
+			 Retrieved from Flickr.com
+
+capitol_art.jpg		Generated on deepai.org

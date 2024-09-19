@@ -1,0 +1,43 @@
+---
+title: "Assignment 2: Fundraising and Competition"
+page-layout: full
+format:
+  html: default
+  pdf: 
+    title: "Assignment 2"
+    subtitle: "Fundraising and Competition"
+    author: "P SC 3143"
+execute:
+  freeze: auto
+---
+
+# Instructions
+
+For this assignment, you are expected to read an article recently published in the *American Political Science Review* on a topic related to Congressional fundraising. You should read the article carefully, making sure to take note of the core elements of a scholarly paper: the research question, theory, methods, results, and conclusion. You should then answer the questions provided below. 
+
+## Article Citation
+
+Thomsen, Danielle M. 2023. ["Competition in Congressional Elections: Money versus Votes."](https://doi.org/10.1017/S0003055422000764) *American Political Science Review.* 117(2): 675-691. (Available on Canvas)
+
+## Reading Questions
+
+1.    What is the central problem the researcher is addressing? Briefly mention two of the reasons given in the article about why this is a problem. 
+2.    Why does the researcher choose a 57.5% threshold for competitiveness? Why is (or isn't) this a reasonable choice?
+3.    How is partisan balance measured? (*Answer in your own phrasing, but the language will/should be similar to that used by the author.*)
+4.    Interpret Figure 3. Be sure to discuss each panel.
+5.    In your own words, what is the author's conclusion of the paper?
+
+
+## Credit Attribution
+
+You should respond to the questions above with your own insights and voice. For that reason, you should refrain from providing direct quotes except where absolutely necessary; in those cases, you should attempt to include a minimal quote that enhances the effectiveness of your response.
+
+In all cases, you should include references to article page numbers when you rely on specific information, whether using a direct quote or a paraphrase. Because this assignment only covers a single article, you are permitted to only use page numbers for in-text references. You are neither required nor expected to use outside resources for this assignment; however, if you choose to do so, you must provide in-text and full citations where appropriate using a recognizable citation format (preferably Chicago; APA and MLA also accepted).
+
+*The use of generative A.I. (e.g. ChatGPT, etc.) is strictly prohibited for this assignment. Please refer to the syllabus for more information.*
+
+# Submission Details
+
+This assignment submission should contain a single word document (.doc, .docx, .pdf) with your responses to the above questions.
+
+**The submission deadline is Friday, September 13th, at 6:00pm CT.** A hefty late penalty will be assessed afterwards (refer to syllabus). 

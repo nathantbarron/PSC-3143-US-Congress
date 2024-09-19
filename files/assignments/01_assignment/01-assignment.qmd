@@ -1,0 +1,65 @@
+---
+title: "Assignment 1: Drawing Congressional Districts"
+page-layout: full
+format:
+  html: default
+  pdf: 
+    title: "Assignment 1"
+    subtitle: "Drawing Congressional Districts"
+    author: "P SC 3143"
+execute:
+  freeze: auto
+---
+
+# Instructions
+
+You have two alternative options for this assignment. The first option is to create two separate maps: one map that balances population across districts and one map that is targeted for partisan gain. Minimal writing is involved in this option. The second option is to create one map that balances population across districts and to respond to paragraph-length reflection questions about the analysis of their map.
+
+For either option, you'll need create and export maps from [davesredistricting.org](https://davesredistricting.org). Please complete the following steps:
+
+-   Navigate to [davesredistricting.org](https://davesredistricting.org). 
+-   In the upper right hand corner of the screen, click "SIGN UP." On the next screen, choose a username and password for your account.
+-   After creating your account and making sure you are logged into the account, you should be directed toward a page that says "My Maps" in the upper left-hand corner.  If not, click the menu button in the upper left-hand corner of the webpage and select "Maps;" this should direct you to an empty "My Maps" folder.
+-   In "My Maps", you should select "+ New Map" in the upper right-hand corner. In the popup menu, be sure to give your map a name and to select "NC" as the state. You can change the color palette if you prefer, but no other options need to be changed. 
+-   For help on how to use the redistricting tool, you can find a library of articles at Dave's Redistricting [Medium page](https://medium.com/dra-2020). 
+
+## Two Maps Option
+
+1.    **Create a districting plan that aims to make each district equal in population size.** For North Carolina, each district should be as close as possible to 745,671. Be sure that you are also paying attention to the other basic rules of redistricting: all precincts should be assigned to a district, districts should be continuous, and districts should not create "holes" (i.e., no district should be completely surrounded by another like a donut and donut hole). 
+
+2.    **Create a second districting plan that aims to acheive one of the following goals**, while adhering to the basic rules of redistricting: 
+
+  -   Republican advantage
+  -   Democratic advantage
+  -   Competitiveness
+    
+3.    In a word document, **answer the following questions**: 
+
+  -   For your first map, how many seats were expected to be won by Democrats? Republicans? How many districts were competitive (i.e. majority party is less than 53% of the popular vote)? 
+  -   Which goal did you select for your second map? How many seats were expected to be won by Democrats? Republicans? How many districts were competitive (i.e. majority party is less than 53% of the popular vote)? 
+
+## Map and Reflection Option
+
+1.    **Create a districting plan that aims to make each district equal in population size.** For North Carolina, each district should be as close as possible to 745,671. Be sure that you are also paying attention to the other basic rules of redistricting: all precincts should be assigned to a district, districts should be continuous, and districts should not create "holes" (i.e., no district should be completely surrounded by another like a donut and donut hole). 
+
+2.    In a word document, **answer the following questions**: 
+
+  -   For your first map, how many seats were expected to be won by Democrats? Republicans? How many districts were competitive (i.e. majority party is less than 53% of the popular vote)? 
+  -   Using the Analytics tool, how did your map perform on the metrics of proportionality, competitiveness, splitting, minority representation, and compactness? Be sure to briefly discuss each.
+  -   Which of the above metrics do you think is most important when considering fairness of Congressional districts? Are there other factors that we should evaluate when considering whether a Congressional districting plan is legally fair? 
+  -   In class, we discussed different methods of redistricting (i.e. legislative, legislative commission, non-partisan commission). Which method(s) do you think are best suited to meet important social goals? Be sure to identify those social goals and describe why that method would be appropriate. 
+
+# Submission Details
+
+This assignment submission is comprised of 4-7 separate uploads, depending on the option you chose: 
+
+1.    **BOTH** Zipped folder (.zip) with Shapefile for your first proposed map. 
+2.    **BOTH** Map analytics (.json) for your first proposed map. 
+3.    **BOTH** Map image (.png) for your first proposed map.
+4.    **BOTH** Document (.doc, .docx, .pdf) with responses to questions.
+5.    **Two Maps** Zipped folder (.zip) with Shapefile files for your second proposed map.
+6.    **Two Maps** Map analytics (.json) for your second proposed map. 
+7.    **Two Maps** Map image (.png) for your second proposed map.
+
+
+**The submission deadline is Friday, September 6th, at 6:00pm CT.** A hefty late penalty will be assessed afterwards (refer to syllabus). 

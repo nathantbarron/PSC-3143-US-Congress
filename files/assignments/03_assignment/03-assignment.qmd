@@ -1,0 +1,45 @@
+---
+title: "Assignment 3: Congressional Elections I"
+page-layout: full
+format:
+  html: default
+  pdf: 
+    title: "Assignment 3"
+    subtitle: "Congressional Elections I"
+    author: "P SC 3143"
+execute:
+  freeze: auto
+---
+
+# Instructions
+
+For this assignment, you are expected to have read chapter one of David Mayhew's *Congress*. After having done so, you should respond to one of the two the essay prompts below in a brief essay style (3-5 paragraphs). 
+
+## Book Citation
+
+Mayhew, David. 1974. *Congress: The Electoral Connection.* New Haven, CT: Yale University Press.
+
+## Short Essay Prompt
+
+### Option 1: Parties and the Member of Congress
+
+Mayhew emphatically states that "no theoretical treatment of the United States Congress that posits parties as analytic units will go very far" (27). Trace Mayhew's argument concerning parties and their influence over MC behavior (including his objection to Downs, discussion of marginals, etc.). Using information from the course and any outside sources (if desired, not required), briefly discuss the relative merits and limitations of his arguments in contemporary electoral politics. Finally, conclude with a position on who is the *primary* force in Congressional elections: parties/partisanship or individual members of Congress. 
+
+
+### Option 2: Reelection-seeking Behavior and Democracy
+
+Mayhew views members of Congress as single-minded seekers of re-election. While some may call this view cynical, he argues that this observation is actually good for democracy. Briefly recount Mayhew's reasoning on this point and then provide your own assessment of potential benefits and costs to an ideal democracy that re-election-seeking behavior may have. Finally, conclude by explaining whether you agree or disagree with Mayhew that MCs' being "single-minded seekers of reelection" is good for democracy.
+
+## Credit Attribution
+
+You should respond to the questions above with your own insights and voice. For that reason, you should refrain from providing direct quotes except where absolutely necessary; in those cases, you should attempt to include a minimal quote that enhances the effectiveness of your response.
+
+In all cases, you should include references to page numbers when you rely on specific information, whether using a direct quote or a paraphrase. Because this assignment only covers a single source, you are permitted to only use page numbers for in-text references. You are neither required nor expected to use outside resources for this assignment; however, if you choose to do so, you must provide in-text and full citations where appropriate using a recognizable citation format (preferably Chicago; APA and MLA also accepted).
+
+*The use of generative A.I. (e.g. ChatGPT, etc.) is strictly prohibited for this assignment. Please refer to the syllabus for more information.*
+
+# Submission Details
+
+This assignment submission should contain a single word document (.doc, .docx, .pdf) with your responses to the above prompt.
+
+**The submission deadline is Friday, September 20th, at 6:00pm CT.** A hefty late penalty will be assessed afterwards (refer to syllabus). 

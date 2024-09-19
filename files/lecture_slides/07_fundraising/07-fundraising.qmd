@@ -1,0 +1,465 @@
+---
+title: "Fundraising"
+subtitle: "P SC 3143: U.S. Congress"
+author: "Nathan Barron"
+format: revealjs
+execute:
+  freeze: auto
+---
+
+```{r}
+library(tidyverse)
+
+ok_con <- rio::import("../../../instructor_files/priv_data/ok-contrib.csv")
+candid <- rio::import("../../../instructor_files/priv_data/cands22.txt", format = "|", fill = TRUE)
+spendtime <- rio::import("../../../instructor_files/priv_data/camp-spend-time.csv")
+cand2cand <- rio::import("../../../instructor_files/priv_data/cand2cand.csv")
+pac2cand <- rio::import("../../../instructor_files/priv_data/pac2cand.csv")
+spending <- rio::import("../../../instructor_files/priv_data/spendtime-detail.xlsx")
+spend2024 <- rio::import("../../../instructor_files/priv_data/2024spending.csv")
+warchest <- rio::import("../../../instructor_files/priv_data/warchest.xlsx")
+```
+
+---
+
+
+```{r, echo=FALSE, include=TRUE}
+
+spend2024 %>%
+  ggplot(.) +
+  geom_bar(
+    aes(x = Chamber, y = `Total Raised`, group = Party, fill = Party), 
+    stat = 'identity', 
+    position = position_dodge()
+  ) + 
+  geom_text(aes(x = Chamber, y = `Total Raised`, group = Party, color = Party, 
+                label = paste0("$",round(`Total Raised`/1000000, 0), " million")), 
+            position = position_dodge(width = 1), hjust = -.15) +
+  scale_fill_manual(values = c("#0a53e4", "#E81B23")) +
+  scale_color_manual(values = c("#0a53e4", "#E81B23")) +
+  scale_y_continuous(limits = c(0,800000000)) + 
+  coord_flip() +
+  theme_minimal() +
+  theme(
+    panel.grid.minor= element_blank(),
+    panel.grid.major= element_blank(),
+    axis.text.x = element_blank(),
+    plot.title = element_text(face = "bold"), 
+    plot.subtitle = element_text(color = "grey30", face = "italic"), 
+    legend.position = "none"
+  ) +
+  labs(
+    x = "", 
+    y = "", 
+    title = "Fundraising in 2024 Congressional Races", 
+    subtitle = "Fundraising from all reported sources; By chamber, party (Source: OpenSecrets.org)"
+  )
+
+```
+
+---
+
+```{r, echo=FALSE, include=TRUE}
+
+spend2024 %>%
+  mutate(raisedpercap = `Total Raised`/`No. of Cands`) %>%
+  ggplot(.) +
+  geom_bar(
+    aes(x = Chamber, y = raisedpercap, group = Party, fill = Party), 
+    stat = 'identity', 
+    position = position_dodge()
+  ) + 
+  geom_text(aes(x = Chamber, y = raisedpercap, group = Party, color = Party, 
+                label = paste0("$",round(raisedpercap/1000000, 2), " million")), 
+            position = position_dodge(width = 1), hjust = -.15) +
+  scale_fill_manual(values = c("#0a53e4", "#E81B23")) +
+  scale_color_manual(values = c("#0a53e4", "#E81B23")) +
+  scale_y_continuous(limits = c(0,5000000)) + 
+  coord_flip() +
+  theme_minimal() +
+  theme(
+    panel.grid.minor= element_blank(),
+    panel.grid.major= element_blank(),
+    axis.text.x = element_blank(),
+    plot.title = element_text(face = "bold"), 
+    plot.subtitle = element_text(color = "grey30", face = "italic"), 
+    legend.position = "none"
+  ) +
+  labs(
+    x = "", 
+    y = "", 
+    title = "Fundraising in 2024 Congressional Races", 
+    subtitle = "PER CAPITA fundraising from all reported sources; By chamber, party (Source: OpenSecrets.org)"
+  )
+
+```
+
+---
+
+
+```{r, echo=FALSE, include=TRUE}
+
+spend2024 %>%
+  ggplot(.) +
+  geom_bar(
+    aes(x = Chamber, y = `Total Spent`, group = Party, fill = Party), 
+    stat = 'identity', 
+    position = position_dodge()
+  ) + 
+  geom_text(aes(x = Chamber, y = `Total Spent`, group = Party, color = Party, 
+                label = paste0("$",round(`Total Spent`/1000000, 0), " million")), 
+            position = position_dodge(width = 1), hjust = -.15) +
+  scale_fill_manual(values = c("#0a53e4", "#E81B23")) +
+  scale_color_manual(values = c("#0a53e4", "#E81B23")) +
+  scale_y_continuous(limits = c(0,800000000)) + 
+  coord_flip() +
+  theme_minimal() +
+  theme(
+    panel.grid.minor= element_blank(),
+    panel.grid.major= element_blank(),
+    axis.text.x = element_blank(),
+    plot.title = element_text(face = "bold"), 
+    plot.subtitle = element_text(color = "grey30", face = "italic"), 
+    legend.position = "none"
+  ) +
+  labs(
+    x = "", 
+    y = "", 
+    title = "Spending in 2024 Congressional Races", 
+    subtitle = "Spending from all reported sources; By chamber, party (Source: OpenSecrets.org)"
+  )
+
+```
+
+---
+
+
+```{r, echo=FALSE, include=TRUE}
+
+spend2024 %>%
+  mutate(spentpercap = `Total Spent`/`No. of Cands`) %>%
+  ggplot(.) +
+  geom_bar(
+    aes(x = Chamber, y = spentpercap, group = Party, fill = Party), 
+    stat = 'identity', 
+    position = position_dodge()
+  ) + 
+  geom_text(aes(x = Chamber, y = spentpercap, group = Party, color = Party, 
+                label = paste0("$",round(spentpercap/1000000, 2), " million")), 
+            position = position_dodge(width = 1), hjust = -.15) +
+  scale_fill_manual(values = c("#0a53e4", "#E81B23")) +
+  scale_color_manual(values = c("#0a53e4", "#E81B23")) +
+  scale_y_continuous(limits = c(0,5000000)) + 
+  coord_flip() +
+  theme_minimal() +
+  theme(
+    panel.grid.minor= element_blank(),
+    panel.grid.major= element_blank(),
+    axis.text.x = element_blank(),
+    plot.title = element_text(face = "bold"), 
+    plot.subtitle = element_text(color = "grey30", face = "italic"), 
+    legend.position = "none"
+  ) +
+  labs(
+    x = "", 
+    y = "", 
+    title = "Spending in 2024 Congressional Races", 
+    subtitle = "PER CAPITA spending from all reported sources; By chamber, party (Source: OpenSecrets.org)"
+  )
+
+```
+
+
+---
+
+```{r, echo=FALSE, include=TRUE}
+
+spend2024 %>%
+  mutate(ratio = `Total From PACs`/`Total From Individuals`) %>%
+  ggplot(.) + 
+  geom_bar(aes(x = Chamber, y = ratio, group = Party, fill = Party), 
+           stat = "identity", position = position_dodge())+
+  geom_text(aes(x = Chamber, y = ratio, group = Party, color = Party, 
+                label = paste0("$",round(ratio, 2))), 
+            position = position_dodge(width = 1), hjust = -.15) +
+  scale_fill_manual(values = c("#0a53e4", "#E81B23")) +
+  scale_color_manual(values = c("#0a53e4", "#E81B23")) +
+  scale_y_continuous(limits = c(0,.5)) + 
+  coord_flip() +
+  theme_minimal() +
+  theme(
+    panel.grid.minor= element_blank(),
+    panel.grid.major= element_blank(),
+    axis.text.x = element_blank(),
+    plot.title = element_text(face = "bold"), 
+    plot.subtitle = element_text(color = "grey30", face = "italic"), 
+    legend.position = "none"
+  ) +
+  labs(
+    x = "", 
+    y = "", 
+    title = "Ratio of Individual to PAC Fundraising", 
+    subtitle = "Values represent how many dollars from PACs are raised for every $1 from individual donors\nReported by chamber, party (Source: OpenSecrets.org)"
+  )
+
+
+```
+
+
+---
+
+```{r, echo=FALSE, include=TRUE}
+
+spending %>% 
+  filter(chamber=="house") %>%
+  ggplot(., aes(x = year)) +
+  geom_line(aes(y=avgwin*infl/1000000), linewidth=1, linetype = 2) +
+  geom_line(aes(y=avglose*infl/1000000), linewidth=1, linetype = 3) +
+  geom_text(aes(x = 1990, y = 1.25, label = "Winners")) +
+  geom_text(aes(x = 1990, y = 0.15, label = "Losers")) +
+  scale_y_continuous(limits = c(0,3)) +
+  scale_x_continuous(limits = c(1990, 2022), breaks = seq(1990,2022,2)) + 
+  theme_minimal() +
+  theme(
+    panel.grid.minor = element_blank(),
+    axis.text.x  = element_text(angle = 25),
+    plot.title = element_text(face = "bold"), 
+        plot.subtitle = element_text(color = "grey30", face = "italic")
+  ) +
+  labs(
+    x = "\nElection Year", 
+    y = "Spending (in million $)", 
+    title = "Average Costs of Congressional Races", 
+    subtitle = "Millions of dollars (2022); adjusted for inflation (Source: OpenSecrets.org)"
+  )
+  
+```
+
+---
+
+
+```{r, echo=FALSE, include=TRUE}
+spending %>% 
+  ggplot(., aes(x = year)) +
+  geom_line(aes(y=hicost*infl/1000000), data = .%>% filter(chamber=="house"), linewidth = 1, linetype = 2) +
+  geom_line(aes(y=hicost*infl/1000000), data = .%>% filter(chamber=="senate"), linewidth = 1, linetype = 3) +
+    geom_text(aes(x = 1990, y = 0, label = "House")) +
+  geom_text(aes(x = 1990, y = 50, label = "Senate")) +
+  scale_x_continuous(limits = c(1990, 2022), breaks = seq(1990,2022,2)) + 
+  theme_minimal() +
+  theme(
+    panel.grid.minor = element_blank(),
+    axis.text.x  = element_text(angle = 25),
+    plot.title = element_text(face = "bold"), 
+        plot.subtitle = element_text(color = "grey30", face = "italic")
+  ) +
+  labs(
+    x = "\nElection Year", 
+    y = "Spending (in million $)", 
+    title = "Most Expensive Congressional Races", 
+    subtitle = "Millions of dollars (2022); adjusted for inflation (Source: OpenSecrets.org)"
+  )
+
+```
+
+---
+
+```{r, echo=FALSE, include=TRUE}
+spending %>% 
+  ggplot(., aes(x = year)) +
+  geom_line(aes(y=locost*infl/1000000), data = .%>% filter(chamber=="house"), linewidth = 1, linetype = 2) +
+  geom_line(aes(y=locost*infl/1000000), data = .%>% filter(chamber=="senate"), linewidth = 1, linetype = 3) +
+  geom_text(aes(x = 1990, y = .2, label = "House")) +
+  geom_text(aes(x = 1990, y = 1, label = "Senate")) +
+  scale_y_continuous(limits = c(0,4)) +
+  
+  scale_x_continuous(limits = c(1990, 2022), breaks = seq(1990,2022,2)) + 
+  theme_minimal() +
+  theme(
+    panel.grid.minor = element_blank(),
+    axis.text.x  = element_text(angle = 25),
+    plot.title = element_text(face = "bold"), 
+        plot.subtitle = element_text(color = "grey30", face = "italic")
+  ) +
+  labs(
+    x = "\nElection Year", 
+    y = "Spending (in million $)", 
+    title = "Cheapest Congressional Races", 
+    subtitle = "Millions of dollars (2022); adjusted for inflation (Source: OpenSecrets.org)"
+  )
+```
+
+
+---
+
+```{r, echo=FALSE, include=TRUE}
+
+warchest %>%
+  mutate(cash = `Cash on Hand`/1000000) %>%
+  filter(Chamber=="House") %>%
+  ggplot(., aes(x=reorder(Member, cash), y = cash)) +
+  geom_bar(aes(fill = Party), stat = "identity") +
+  geom_text(aes(color = Party, label = paste0(Member)), hjust = -0.1, vjust = -.1) +
+  geom_text(aes(label = paste0("$",round(cash,2), " million")), color = "grey30", vjust = 1, hjust = -.4) +
+  scale_y_continuous(limits = c(0, 25)) +
+  scale_fill_discrete(type = c("#0a53e4", "#E81B23")) +
+  scale_color_discrete(type = c("#0a53e4", "#E81B23")) +
+  coord_flip() +
+  theme_void() +
+  theme(legend.position = "none",
+        plot.title = element_text(face = "bold"), 
+        plot.subtitle = element_text(color = "grey30", face = "italic")) +
+  labs(title = "Top 10 War Chests in the House", 
+       subtitle = "Largest cash on hand accounts for House members after the 2022 cycle (Source: OpenSecrets.org)\n")
+
+```
+
+---
+
+```{r, echo=FALSE, include=TRUE}
+
+warchest %>%
+  mutate(cash = `Cash on Hand`/1000000) %>%
+  filter(Chamber=="Senate") %>%
+  ggplot(., aes(x=reorder(Member, cash), y = cash)) +
+  geom_bar(aes(fill = Party), stat = "identity") +
+  geom_text(aes(color = Party, label = paste0(Member)), hjust = -0.1, vjust = -.1) +
+  geom_text(aes(label = paste0("$",round(cash,2), " million")), color = "grey30", vjust = 1, hjust = -.4) +
+  scale_y_continuous(limits = c(0, 25)) +
+  scale_fill_discrete(type = c("#0a53e4", "#E81B23")) +
+  scale_color_discrete(type = c("#0a53e4", "#E81B23")) +
+  coord_flip() +
+  theme_void() +
+  theme(legend.position = "none",
+        plot.title = element_text(face = "bold"), 
+        plot.subtitle = element_text(color = "grey30", face = "italic")) +
+  labs(title = "Top 10 War Chests in the Senate", 
+       subtitle = "Largest cash on hand accounts for Senators after the 2022 cycle (Source: OpenSecrets.org)\n")
+
+```
+
+---
+
+
+```{r, echo=FALSE, include=TRUE}
+pac2cand %>%
+  mutate(Total = Total/1000, 
+         party = factor(ifelse(grepl("(R)", person), 1, 0)),
+         tds_mil = paste0("$",round(Total, 2), "K")) %>%
+  ggplot(., aes(x=-Rank, y = Total)) +
+  geom_bar(aes(fill = party), stat = "identity") +
+  geom_text(aes(color = party, label = paste0(Giver, " (", person,")")), hjust = -0.1, vjust = -.1) +
+  geom_text(aes(label = tds_mil), color = "grey30", vjust = 1, hjust = -.4) +
+  scale_y_continuous(limits = c(0,4000)) +
+  scale_fill_discrete(type = c("#0a53e4", "#E81B23")) +
+  scale_color_discrete(type = c("#0a53e4", "#E81B23")) +
+  coord_flip() +
+  theme_void() +
+  theme(legend.position = "none",
+        plot.title = element_text(face = "bold"), 
+        plot.subtitle = element_text(color = "grey30", face = "italic")) +
+  labs(title = "Biggest PAC Givers in 2022", 
+       subtitle = "MC's PACs that gave the most money to other members (Source: OpenSecrets.org)\n")
+
+```
+
+
+---
+
+```{r, echo=FALSE, include=TRUE}
+cand2cand %>%
+  mutate(Total = Total/1000, 
+         party = factor(ifelse(grepl("(R)", Giver), 1, 0)),
+         tds_mil = paste0("$",round(Total, 2), "K")) %>%
+  ggplot(., aes(x=-Rank, y = Total)) +
+  geom_bar(aes(fill = party), stat = "identity") +
+  geom_text(aes(color = party, label = Giver), hjust = -0.1, vjust = -.1) +
+  geom_text(aes(label = tds_mil), color = "grey30", vjust = 1, hjust = -.4) +
+  scale_y_continuous(limits = c(0, 1000)) +
+  scale_fill_discrete(type = c("#0a53e4", "#E81B23")) +
+  scale_color_discrete(type = c("#0a53e4", "#E81B23")) +
+  coord_flip() +
+  theme_void() +
+  theme(legend.position = "none",
+        plot.title = element_text(face = "bold"), 
+        plot.subtitle = element_text(color = "grey30", face = "italic")) +
+  labs(title = "Biggest Givers in 2022", 
+       subtitle = "Members of Congress who gave the most money to other members (Source: OpenSecrets.org)\n")
+
+```
+
+---
+
+```{r, echo=FALSE, include=TRUE}
+ok_out_df <- 
+  merge(
+    ok_con,
+    candid,
+    by.x = "Recipid",
+    by.y = "V6",
+    all.x = FALSE, 
+    all.y = FALSE
+  )
+
+ok_out_df %>%
+  group_by(V8) %>%
+  summarise(tds= sum(Amount)/100000) %>%
+  filter(V8!="Bernie Sanders (I)") %>%
+  arrange(-tds) %>%
+  head(10) %>%
+  mutate(party = factor(ifelse(grepl("(R)", V8), 1, 0)), 
+         tds_mil = paste0("$",round(tds/10, 2), " million")) %>%
+  ggplot(., aes(x=reorder(V8, tds), y = tds)) +
+  geom_bar(aes(fill = party), stat = "identity") +
+  geom_text(aes(color = party, label = reorder(V8, tds)), position = position_nudge(x = .25, y = .25), hjust = 0) +
+  geom_text(aes(label = tds_mil), color = "grey30", vjust = 1, hjust = -.1) +
+  scale_y_continuous(limits = c(0, 55)) +
+  scale_fill_discrete(type = c("#0a53e4", "#E81B23")) +
+  scale_color_discrete(type = c("#0a53e4", "#E81B23")) +
+  coord_flip() +
+  theme_void() +
+  theme(legend.position = "none",
+        plot.title = element_text(face = "bold"), 
+        plot.subtitle = element_text(color = "grey30", face = "italic")) +
+  labs(title = "Where did Oklahomans give their money?", 
+       subtitle = "Direct contributions to individuals from the 2020 election cycle (Source: OpenSecrets.org)\n")
+
+
+```
+
+---
+
+```{r, echo=FALSE, include=TRUE}
+ok_out_df %>%
+  mutate(recipstate = substr(V12, 1, 2)) %>%
+  group_by(recipstate) %>%
+  summarise(tds = sum(Amount)/100000) %>%
+  arrange(-tds)%>%
+  head(10) %>%
+  mutate(okstate = factor(ifelse(grepl("OK", recipstate), 1, 0)), 
+         tds_mil = paste0("$",round(tds/10, 2), " million")) %>%
+  ggplot(., aes(x=reorder(recipstate, tds), y = tds)) +
+  geom_bar(aes(fill = okstate), stat = "identity") +
+  geom_text(aes(color = okstate, label = reorder(recipstate, tds)), position = position_nudge(x = .25, y = .25), hjust = 0) +
+  geom_text(aes(label = tds_mil), color = "grey30", vjust = 1, hjust = -.1) +
+  scale_y_continuous(limits = c(0, 110)) +
+  scale_fill_discrete(type = c("grey30", "#1CA6DF")) +
+  scale_color_discrete(type = c("grey30", "#1CA6DF")) +
+  coord_flip() +
+  theme_void() +
+  theme(legend.position = "none",
+        plot.title = element_text(face = "bold"), 
+        plot.subtitle = element_text(color = "grey30", face = "italic")) +
+  labs(title = "Where did Oklahomans give their money?", 
+       subtitle = "Recipient's state for direct contributions from the 2020 election cycle (Source: OpenSecrets.org)\n")
+
+```
+
+
+
+--- 
+
+```{=html}
+<object data="../../../instructor_files/priv_data/contribution_limits_chart_2023-2024.pdf" type="application/pdf" width="100%" height="80%" style="min-height:100vh;">
+</object>
+```

@@ -1,0 +1,142 @@
+\documentclass[10pt]{article} 
+\usepackage{geometry}
+\geometry{tmargin=1in, bmargin=1in, lmargin=2.5in, rmargin = 1in}  
+\usepackage{pgfplots}
+
+\title{\textbf{U.S. Congress}\\\textit{Theory and Analysis}}
+\author{Nathan Barron}
+\date{Fall 2024}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\vspace{.25in}
+	\hrule
+	\vspace{.25in}
+	
+	\section{Decision-making in one dimension}
+	
+	\subsection{Spatial theory}
+	
+	Spatial theory refers to the set of interrelated assumptions, logical statements, and expectations that individual choice can be explained by a person's location in preference space. Spatial theory has also been applied to institutional choices, which expands the decision-maker role from an individual to a group of individuals. 
+	
+	Spatial theory is a mid-level (i.e. less abstract) theory within the rational choice framework. As such, there are three primary assertions about how choices are made by individuals: 
+	
+	\begin{enumerate}
+		\item Actors possess non-trivial, ordered preferences. 
+		\item Actors' preferences are transitive. 
+		\item Actors make choices in order to maximize their preferences. 
+	\end{enumerate}
+	
+	\subsection{Models of individual voting}
+	
+	There are three primary models of individual voting. All three share similar approaches and similar outcomes because they are modeled using the same logic (i.e. theory). In each of these models, actors make decisions based on their spatial orientation with respect to the status quo (or reversion point) and its alternatives. Additionally, these models assume that each actor possesses an ideal point that represents her maximum preference and that alternative choices not located at the ideal point are penalized according to some utility function (or, indifference curve). 
+	
+	The outstanding difference between these models regards the nature and shape of these utility functions. In the \textit{basic proximity} model, utility functions are assumed to be symmetrical about the ideal point -- meaning that an actor would be indifferent to alternatives that are 2 points below and 2 points above the ideal point. In this model, the magnitude of distance from the ideal point is the determinant. The remaining two models are asymmetrical about the ideal point. The \textit{directional} model suggests that individuals' possess some type of directional preference such that the utility function does not decrease towards one direction from the actor's ideal point. The directional model is particularly helpful when thinking about partisan electoral contexts. The \textit{discounting} model is where actors have a non-absolute directional preference, meaning that distance from the ideal point is less penalized in one preferred direction than in the other. 
+	
+	
+	\begin{figure}[h]
+		\centering
+		\resizebox{0.3\textwidth}{!}{
+			\begin{tikzpicture}
+				\begin{axis}[
+					axis lines = middle,
+					xlabel = $x$,
+					ylabel = {$f(x)$},
+					ymin=0, ymax=6,
+					xmin=-3, xmax=5,
+					]
+					% Plot the parabolic part y = x^2 for x <= 2
+					\addplot [
+					domain=-3:5, 
+					samples=100, 
+					color=blue,
+					]
+					{-(x-2)^2+5};
+				\end{axis}
+			\end{tikzpicture}
+		}
+		\resizebox{0.3\textwidth}{!}{
+			\begin{tikzpicture}
+				\begin{axis}[
+					axis lines = middle,
+					xlabel = $x$,
+					ylabel = {$f(x)$},
+					ymin=0, ymax=6,
+					xmin=-3, xmax=5,
+					]
+					% Plot the parabolic part y = x^2 for x <= 2
+					\addplot [
+					domain=-3:2, 
+					samples=100, 
+					color=blue,
+					]
+					{-(x-2)^2+5};
+					% Plot the constant part y = 4 for x > 2
+					\addplot [
+					domain=2:5, 
+					samples=2, 
+					color=blue,
+					]
+					{5};
+				\end{axis}
+			\end{tikzpicture}
+		}
+		\resizebox{0.3\textwidth}{!}{
+			\begin{tikzpicture}
+				\begin{axis}[
+					axis lines = middle,
+					xlabel = $x$,
+					ylabel = {$f(x)$},
+					ymin=0, ymax=6,
+					xmin=-3, xmax=5,
+					]
+					% Plot the parabolic part y = x^2 for x <= 2
+					\addplot [
+					domain=-3:2, 
+					samples=100, 
+					color=blue,
+					]
+					{-(x-2)^2+5};
+					% Plot the constant part y = 4 for x > 2
+					\addplot [
+					domain=2:5, 
+					samples=2, 
+					color=blue,
+					]
+					{-.25*(x-2)^2+5};
+				\end{axis}
+			\end{tikzpicture}
+		}
+		\caption{\textbf{Graph representations of different models of spatial voting.} Proximity (far left), right-directional (middle), and right-discounted (far right).}
+	\end{figure}
+	
+	\subsection{Group voting}
+	Group voting in a single dimension takes a similar form to individual voting. Importantly, group decisions are decided according to a \textit{voting rule}. The most common types of voting rules are the majority rule and a two-thirds rule, though there may be others (e.g., cloture in the Senate requires three-fifths). Unless the voting rule threshold is met or surpassed by the group vote, the status quo remains. 
+	
+	
+	
+	\section{Decision-making in multiple dimensions}
+	
+	\subsection{Individual voting}
+	
+	In two dimensions, an individual's ideal point is the coordinate pair of ideal points in those dimensions. For example, if an individual has an ideal point of 5 on policy issue X and an ideal point of -2 on policy issue Y, then the individual's ideal point in two-dimensional preference space would be (5, -2). Indifference curves are defined relative to each dimension. That is, the utility functions with respect to X and Y measures how much a gain/loss in X would change the individual's preference for Y. This relationship is usually drawn as an ellipses (though the shape could be more complex in advanced applications). 
+	
+	\subsection{Group voting}
+	
+	While individuals have distinct preference spaces (the ellipses) where alternatives to the status quo are preferred, groups have overlapping ellipses that determine agreement areas in the preference space. If a certain preference space has enough overlapping individual ellipses to meet the voting rule, that overlapping space is referred to as a \textit{win set}. Note: This is not ``the" win set but ``a" win set because there can be multiple win sets -- even if they aren't close to each other. 
+	
+	\subsection{Special cases}
+	
+	Strict assumptions about individual rationality does not mean that a group will make socially optimal choices. In 3+ dimensions with 3+ actors, there is the possibility of \textit{preference cycling} due to the breakdown of preference intransitivity. The likelihood of cycling increases with additional dimensions and actors, though there is no guarantee that cycling will occur. In these cases, the order of voting among alternatives (or amendments, etc.) will determine the final outcome.
+	
+	Additionally, in multiple space with multiple actors, there is an increasing likelihood that \textit{any} area of preference space is reachable by ordering the sequence of votes. This is known as McKelvey's chaos theorem. As with preference cycling, this theorem is not deterministic but probabilistic. 
+	
+	
+	
+	\section{Application}
+	
+	\textit{Be sure to review the slides and be able to determine how individuals and groups decide in various arrangements.}
+	
+	
+\end{document}

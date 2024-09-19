@@ -1,0 +1,40 @@
+---
+title: "Assignment 4: Measuring Ideology"
+page-layout: full
+format:
+  html: default
+  pdf: 
+    title: "Assignment 4"
+    subtitle: "Measuring Ideology"
+    author: "P SC 3143"
+execute:
+  freeze: auto
+---
+
+# Instructions
+
+In class, we will discuss ideology in Congress -- which specific attention to how political scientists use roll call voting behavior to indirectly measure ideology. For this assignment, you are expected to complete your own roll call voting record across a range of political questions. In class, we will explore how these voting decisions are then mapped into ideological space using W-NOMINATE.
+
+## Questionnaire
+
+You can access the questionnaire here: [Questionnaire (.xlsx)](questionnaire.xlsx). These questions are selected from ISideWith.com. Before you begin, please choose a 3-letter identifier that will be attached to the results distributed in class (e.g. "NTB").[^1] The identifier should be placed in the first cell of the "id" column (i.e. replace "AAA" with your own id).
+
+[^1]: This identifier will effectively anonymize your responses to your classmates but in a way that you can still find your own information, if interested
+
+You can then proceed through the questionnaire, recording a 1 if your answer is *yes* or a 0 if your answer is *no*. You will likely encounter several questions where neither 1 nor 0 are totally appropriate -- that's normal. Legislators face the same challenges when required to vote Yea or Nay on complex legislation. Just pick the response that is *most* representative of your view. Once finished, you should save the file as an Excel file (.xlsx).
+
+## Grading
+
+Grading of this assignment will be based on completion. The content of responses is neither individually reviewed nor considered in grading.
+
+## Anti-discrimination Reminder
+
+As stated in the syllabus, the University of Oklahoma does not discriminate or permit discrimination by any member of its community against any individual based on the individual's political beliefs.
+
+Any student may request an alternative assignment from the instructor no later than Wednesday, September 25th, at 10:00am CT. Adequate time will be allotted to complete the alternative assignment.
+
+# Submission Details
+
+This assignment submission should contain a single Excel file (.xlsx only) with your responses. You can use Excel files through your OU Office 365 account or the Bizzell computer lab.
+
+**The submission deadline is Thursday, September 26th, at 10:00am CT.** A hefty late penalty will be assessed afterwards (refer to syllabus).
